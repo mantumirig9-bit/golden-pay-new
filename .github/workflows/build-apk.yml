@@ -48,7 +48,7 @@ jobs:
 
       - name: Create Capacitor config
         run: |
-          cat > capacitor.config.ts << 'EOF'
+          cat > capacitor.config.js << 'EOF'
           import { CapacitorConfig } from '@capacitor/cli';
 
           const config: CapacitorConfig = {
