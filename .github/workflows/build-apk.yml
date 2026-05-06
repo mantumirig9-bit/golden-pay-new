@@ -62,7 +62,9 @@ jobs:
           EOF
 
       - name: Add Android
-        run: npx cap add android
+  run: |
+    npm install -D typescript
+    npx cap add android
 
       - name: Sync Android
         run: npx cap sync android
