@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Golden Pay</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="splash">
+  <img src="splash-logo.jpg" class="splash-logo">
+  <h1>Golden Pay</h1>
+  <p>Premium Partner</p>
+</div>
+
+<div id="loginPage" class="login-page hidden">
+
+  <div class="login-card">
+    <img src="splash-logo.jpg" class="login-logo">
+
+    <h1>Welcome to Golden Pay</h1>
+    <p>Sign in to continue</p>
+
+    <button class="google-btn">
+      Continue with Google
+    </button>
+
+    <div class="or">OR</div>
+
+    <label>Email</label>
+    <input type="email" id="email" placeholder="you@example.com">
+
+    <label>Password</label>
+    <input type="password" id="password" placeholder="••••••••">
+
+    <button class="signin-btn" onclick="login()">
+      Sign in
+    </button>
+
+  </div>
+
+</div>
+
+<div id="app" class="app hidden">
+
+<header>
+  <div class="logo-area">
+    <div class="logo-box">▣</div>
+    <div>
+      <h2>GOLDEN PAY</h2>
+    </div>
+  </div>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</header>
+
+<div id="sidebar" class="sidebar">
+
+  <button class="close-btn" onclick="toggleMenu()">✕</button>
+
+  <div class="profile-card">
+    <h2 id="profileName">User</h2>
+  </div>
+
+  <button>Dashboard</button>
+  <button>Bank Accounts</button>
+  <button>Withdrawal</button>
+  <button>Security Deposit</button>
+  <button>Transactions</button>
+  <button>Support</button>
+
+</div>
+
+<main>
+
+<div class="welcome-card">
+  <p>Welcome back,</p>
+  <h1 id="dashboardName">User 👋</h1>
+  <p>Track your earnings and manage accounts</p>
+
+  <div class="online">
+    ● System Online
+  </div>
+</div>
+
+<div class="stats-grid">
+
+  <div class="card">
+    <p>TOTAL EARNINGS</p>
+    <h2>₹0</h2>
+    <small>Available balance</small>
+  </div>
+
+  <div class="card">
+    <p>ACTIVE ACCOUNTS</p>
+    <h2>0</h2>
+    <small>10% commission</small>
+  </div>
+
+  <div class="card">
+    <p>PENDING</p>
+    <h2>2</h2>
+    <small>Awaiting activation</small>
+  </div>
+
+  <div class="card">
+    <p>TRANSACTIONS</p>
+    <h2>0</h2>
+    <small>All time</small>
+  </div>
+
+</div>
+
+<div class="quick-grid">
+
+  <button class="gold-btn">
+    ＋<br>Add Account
+  </button>
+
+  <button class="dark-btn">
+    ↓<br>Withdraw
+  </button>
+
+  <button class="dark-btn">
+    ⌁<br>History
+  </button>
+
+  <button class="dark-btn">
+    ☏<br>Support
+  </button>
+
+</div>
+
+<div class="transactions">
+
+  <div class="tx-header">
+    <div>
+      <h2>Recent Transactions</h2>
+      <p>Live earning updates</p>
+    </div>
+
+    <span>View All</span>
+  </div>
+
+  <div class="empty">
+    No transactions yet
+  </div>
+
+</div>
+
+</main>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
