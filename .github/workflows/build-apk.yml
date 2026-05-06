@@ -14,69 +14,54 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 18
 
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '21'
+          distribution: temurin
+          java-version: 17
 
       - name: Create package.json
         run: |
-          cat > package.json << 'EOF'
-          {
-            "name": "golden-pay",
+          echo '{
+            "name": "goldenpay",
             "version": "1.0.0",
-            "private": true,
-            "scripts": {
-              "build": "mkdir -p dist && cp -r www/* dist/"
-            },
             "dependencies": {
-              "@capacitor/core": "^6.1.2",
-              "@capacitor/android": "^6.1.2",
-              "@capacitor/cli": "^6.1.2"
+              "@capacitor/core": "latest",
+              "@capacitor/cli": "latest",
+              "@capacitor/android": "latest"
+            },
+            "devDependencies": {
+              "typescript": "^5.0.0"
             }
-          }
-          EOF
+          }' > package.json
 
       - name: Install dependencies
         run: npm install
 
-      - name: Create web build
-        run: npm run build
-
       - name: Create Capacitor config
         run: |
-          cat > capacitor.config.js << 'EOF'
-          import { CapacitorConfig } from '@capacitor/cli';
-
-          const config: CapacitorConfig = {
+          echo "module.exports = {
             appId: 'com.goldenpay.app',
             appName: 'Golden Pay',
-            webDir: 'dist',
+            webDir: 'www',
             bundledWebRuntime: false
-          };
-
-          export default config;
-          EOF
+          };" > capacitor.config.js
 
       - name: Add Android
-  run: |
-    npm install -D typescript
-    npx cap add android
+        run: npx cap add android
 
-      - name: Sync Android
-        run: npx cap sync android
+      - name: Copy Web Files
+        run: npx cap copy
 
       - name: Build APK
         run: |
           cd android
-          chmod +x gradlew
           ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: GoldenPay-APK
+          name: goldenpay-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
