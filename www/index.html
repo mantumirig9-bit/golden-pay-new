@@ -3,156 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Golden Pay</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>AURUM Login</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      width:100%;
+      min-height:100vh;
+      background:#f5f5f5;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+    }
+
+    .container{
+      width:100%;
+      max-width:380px;
+      background:#ffffff;
+      border-radius:25px;
+      padding:25px;
+      box-shadow:0 5px 25px rgba(0,0,0,0.12);
+      text-align:center;
+    }
+
+    .logo{
+      width:100%;
+      max-width:240px;
+      margin:auto;
+      display:block;
+      margin-bottom:25px;
+      border-radius:12px;
+    }
+
+    .google-btn{
+      width:100%;
+      padding:13px;
+      border:none;
+      border-radius:12px;
+      background:#ffffff;
+      border:1px solid #cccccc;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      margin-bottom:18px;
+      transition:0.3s;
+    }
+
+    .google-btn:hover{
+      background:#f1f1f1;
+    }
+
+    .input-box{
+      width:100%;
+      margin-bottom:15px;
+    }
+
+    .input-box input{
+      width:100%;
+      padding:14px;
+      border:2px solid #d4a017;
+      border-radius:12px;
+      font-size:16px;
+      outline:none;
+    }
+
+    .input-box input:focus{
+      border-color:#b8860b;
+    }
+
+    .signin-btn{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      background:#d4a017;
+      color:#ffffff;
+      font-size:17px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .signin-btn:hover{
+      background:#b8860b;
+    }
+
+    .bottom-text{
+      margin-top:18px;
+      font-size:14px;
+      color:#666;
+    }
+
+    .bottom-text a{
+      color:#d4a017;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    @media(max-width:480px){
+
+      .container{
+        padding:20px;
+        border-radius:20px;
+      }
+
+      .logo{
+        max-width:200px;
+      }
+
+      .google-btn,
+      .signin-btn,
+      .input-box input{
+        font-size:15px;
+      }
+
+    }
+
+  </style>
 </head>
 <body>
 
-<div id="splash">
-  <img src="splash-logo.jpg" class="splash-logo">
-  <h1>Golden Pay</h1>
-  <p>Premium Partner</p>
-</div>
+  <div class="container">
 
-<div id="loginPage" class="login-page hidden">
+    <!-- Logo -->
+    <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" 
+      alt="Logo"
+      class="logo"
+    >
 
-  <div class="login-card">
-    <img src="splash-logo.jpg" class="login-logo">
-
-    <h1>Welcome to Golden Pay</h1>
-    <p>Sign in to continue</p>
-
+    <!-- Google Button -->
     <button class="google-btn">
       Continue with Google
     </button>
 
-    <div class="or">OR</div>
+    <!-- Email -->
+    <div class="input-box">
+      <input 
+        type="email" 
+        placeholder="Enter Email"
+        required
+      >
+    </div>
 
-    <label>Email</label>
-    <input type="email" id="email" placeholder="you@example.com">
+    <!-- Password -->
+    <div class="input-box">
+      <input 
+        type="password" 
+        placeholder="Enter Password"
+        required
+      >
+    </div>
 
-    <label>Password</label>
-    <input type="password" id="password" placeholder="••••••••">
-
-    <button class="signin-btn" onclick="login()">
-      Sign in
+    <!-- Sign In -->
+    <button class="signin-btn">
+      Sign In
     </button>
 
-  </div>
-
-</div>
-
-<div id="app" class="app hidden">
-
-<header>
-  <div class="logo-area">
-    <div class="logo-box">▣</div>
-    <div>
-      <h2>GOLDEN PAY</h2>
-    </div>
-  </div>
-
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
-</header>
-
-<div id="sidebar" class="sidebar">
-
-  <button class="close-btn" onclick="toggleMenu()">✕</button>
-
-  <div class="profile-card">
-    <h2 id="profileName">User</h2>
-  </div>
-
-  <button>Dashboard</button>
-  <button>Bank Accounts</button>
-  <button>Withdrawal</button>
-  <button>Security Deposit</button>
-  <button>Transactions</button>
-  <button>Support</button>
-
-</div>
-
-<main>
-
-<div class="welcome-card">
-  <p>Welcome back,</p>
-  <h1 id="dashboardName">User 👋</h1>
-  <p>Track your earnings and manage accounts</p>
-
-  <div class="online">
-    ● System Online
-  </div>
-</div>
-
-<div class="stats-grid">
-
-  <div class="card">
-    <p>TOTAL EARNINGS</p>
-    <h2>₹0</h2>
-    <small>Available balance</small>
-  </div>
-
-  <div class="card">
-    <p>ACTIVE ACCOUNTS</p>
-    <h2>0</h2>
-    <small>10% commission</small>
-  </div>
-
-  <div class="card">
-    <p>PENDING</p>
-    <h2>2</h2>
-    <small>Awaiting activation</small>
-  </div>
-
-  <div class="card">
-    <p>TRANSACTIONS</p>
-    <h2>0</h2>
-    <small>All time</small>
-  </div>
-
-</div>
-
-<div class="quick-grid">
-
-  <button class="gold-btn">
-    ＋<br>Add Account
-  </button>
-
-  <button class="dark-btn">
-    ↓<br>Withdraw
-  </button>
-
-  <button class="dark-btn">
-    ⌁<br>History
-  </button>
-
-  <button class="dark-btn">
-    ☏<br>Support
-  </button>
-
-</div>
-
-<div class="transactions">
-
-  <div class="tx-header">
-    <div>
-      <h2>Recent Transactions</h2>
-      <p>Live earning updates</p>
+    <!-- Bottom -->
+    <div class="bottom-text">
+      Don’t have an account?
+      <a href="#">Register</a>
     </div>
 
-    <span>View All</span>
   </div>
-
-  <div class="empty">
-    No transactions yet
-  </div>
-
-</div>
-
-</main>
-</div>
-
-<script src="app.js"></script>
 
 </body>
 </html>
